@@ -18,36 +18,32 @@ def agregar_equipo (nombre):
     else:
         print ("Este equipo ya esta registrado")
 
-def guardar_resultado (local,visitante,marcador):
-    g_local, g_visitante = map(int, marcador.split("-"))
+def guardar_resultado (local, visitante, glocal, gvisitante):
 
-    #actualizo partidos
-    tabla [local][¨PJ¨] += 1
-    tabla [visitante]["PJ"]+= 1
+    #actualizo partidos 
+    tabla [local][PJ] +=1
+    tabla [visitante][PJ] +=1
 
-    #act goles
+    #guardo goles
+    tabla [local][GF] +=glocal
+    tabla [local][GC] += gvisitante
+    tabla [visitante][GC] += glocal
+    tabla [visitante][GF] +=gvisitante
 
-    tabla[local]["GF"] += g_local
-    tabla[local]["GC"] += g_visitante
-    tabla[visitante]["GF"] += g_visitante
-    tabla[visitante]["GC"] += g_local
+    #actualizo resultados 
+    if glocal > gvisitante:
+        tabla[local][PG] +=1
+        tabla [local][Pts] += 3
+        tabla [visitante][PP]+=1
+    elif glocal < gvisitante:
+        tabla [visitante][PG]+=1
+        tabla [visitante][Pts]+= 3
+        tabla [local][PP] +=1
+    else glocal = gvisitante: 
+        tabla [local][Pts]+= 1
+        tabla [visitante][Pts]+= 1
 
-    #act resultados
-    if g_local > g_visitante:
-        tabla[local]["PG"] += 1
-        tabla[visitante]["PP"] += 1
-        tabla [local]["Pts"] += 3
-    elif g_local < g_visitante:
-        tabla[visitante]["PG"] += 1
-        tabla[local]["PP"] += 1
-        tabla[visitante]["Pts"] += 3
-    else:
-        tabla[local]["PE"] += 1
-        tabla [visitante]["PE"]+= 1
-        tabla[local]["Pts"] += 1
-        tabla[visitante]["Pts"] += 1
-
-def mostrar_tabla ()
-    print ("Tabla de posiciones")
+def mostrar_tabla(): 
+    
 
 
