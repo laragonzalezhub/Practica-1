@@ -5,8 +5,10 @@ words = {
      "materias": ["gestion", "algoritmos", "matematica", "economia", "contabilidad"]
 }
 
+
 print("¡Bienvenido al Ahorcado!")
 print()
+
 
 rondas= int(input("Cantidad de rondas a jugar: "))
 print (f"Las categorias disponibles son: ", " , ".join(words.keys()))
@@ -62,3 +64,5 @@ for i in range(0,rondas):
         print (f"el puntaje total que obtuviste es: {puntos_totales}")
     else:
         print ("esa categoria no existe")
+
+#hice que el programa no cambie de categoria en cada ronda y agregue nuevas palabras + categorias
