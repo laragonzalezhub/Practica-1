@@ -6,8 +6,6 @@ def mostrar_menu():
     print ("3. Mostrar tabla de posiciones")
     print ("4. Salir")
 
-
-
 def agregar_equipo (nombre):
     if nombre not in tabla:
         tabla [nombre] = {
@@ -81,7 +79,7 @@ while True:
     else:
         print("Opción inválida")
 
-
+#aclaracion: no pude usar el formato de marcador 1-2 porque no pude entenderlo aun. 
 
 
     
