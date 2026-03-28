@@ -9,5 +9,24 @@ playlist = [
 {"title": "Like a Rolling Stone", "duration": "6:13"},
 ]
 
-for l in playlist:
-    minutos = diccionario.get (duration)
+def segundos (duration):
+    m,s = map (int, duration.split (":"))
+    return m * 60 + s
+
+segundos_totales = sum(segundos(song["duration"]) for song in playlist)
+minutes = segundos_totales // 60
+seconds = segundos_totales % 60
+
+#busqueda de cancion mas corta y larga 
+mayor= playlist [0]
+menor = playlist [0]
+
+for song in playlist:
+    if segundos(song["duration"]) > segundos (mayor ["duration"]):
+        mayor = song
+    if  segundos (song ["duration"]) < segundos (menor ["duration"]):
+        menor = song
+
+print (f"La duracion total es: {minutes}m {seconds}s")
+print (f"Cancion mas larga: {mayor["title"]}, ({mayor ["duration"]})")
+print (f"Cancion mas corta: {menor ["title"]}, ({menor ["duration"]})")
